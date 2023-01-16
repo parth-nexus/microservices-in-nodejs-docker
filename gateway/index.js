@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const expressProxy = require("express-proxy");
+const expressProxy = require("express-http-proxy");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
