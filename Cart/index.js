@@ -4,6 +4,9 @@ require("dotenv").config();
 let amqp = require("amqplib");
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+const os = require("os");
+const numCpu = os.cpus().length;
+const cluster = require("cluster");
 
 const { MongoClient, ServerApiVersion } = require("mongodb");
 const uri =
@@ -59,6 +62,19 @@ app.post("/add-to-cart", async (req, res) => {
   }
 });
 
-app.listen(process.env.PORT, () => {
-  console.log("Cart API listening on " + process.env.PORT);
-});
+if (cluster.isPrimary) {
+  console.log(
+    "\n\n\n   😲 You have " + numCpu + " logical processors so im creating"
+  );
+  console.log(numCpu + " clusters 🤩 \n");
+  console.log(
+    "All cluster will listen on PORT: " + process.env.SERVER_PORT + "\n\n\n"
+  );
+  for (let i = 0; i < numCpu; i++) {
+    cluster.fork();
+  }
+} else {
+  app.listen(process.env.SERVER_PORT, () => {
+    console.log(`Cart API Cluster ${process.pid} running ✅`);
+  });
+}
