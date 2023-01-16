@@ -22,4 +22,8 @@ npm i
 npm start
 ```
 
-Remember to start other services as well!
+Remember to start other services as well by going into their directories and do the following:-
+```sh
+npm i
+npm start
+````
