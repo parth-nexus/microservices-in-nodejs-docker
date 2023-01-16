@@ -9,9 +9,7 @@ const numCpu = os.cpus().length;
 const cluster = require("cluster");
 
 const { MongoClient, ServerApiVersion } = require("mongodb");
-const uri =
-  "mongodb+srv://adminXpd:0vkiuMYf8yHNR1lV@cluster0.y2sesuf.mongodb.net";
-const client = new MongoClient(uri, {
+const client = new MongoClient(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   serverApi: ServerApiVersion.v1,
