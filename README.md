@@ -15,9 +15,11 @@ Amqplib https://www.npmjs.com/package/amqplib
 Docker files are not ready yet will be updating them on the go in future. Will also include docker compose.
 
 
-Start node server by doing
+Start node gateway by doing
 ```sh
-cd mini-project
+cd mini-project/gateway
 npm i
 npm start
 ```
+
+Remember to start other services as well!
