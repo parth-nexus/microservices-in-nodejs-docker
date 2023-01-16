@@ -1,6 +1,7 @@
 # mini-project created in nodejs. Using microservice arc 🚀
 
-Using rabbitMQ broker as a messaging queue channel and amqp package to manage and send messages to channel.
+Implementes RabbitMQ broker as a messaging queue channel and amqp package to manage and send messages to channel.
+Some REST api endpoints which lisitens and then sends messages to queues. 
 This is just a demo which you can try locally.
 
 Download rabbitMQ from https://www.rabbitmq.com/download.html
