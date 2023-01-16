@@ -1,6 +1,6 @@
 FROM node:alpine
-COPY . /Cart
-WORKDIR /Cart
-EXPOSE 3005
+COPY . /Help
+WORKDIR /Help
+EXPOSE 3003
 RUN npm i
 CMD npm start
