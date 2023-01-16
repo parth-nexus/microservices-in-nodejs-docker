@@ -1,4 +1,4 @@
-# _mini-project created in nodejs. Using microservice arc_ 🚀
+# _mini-project as microservice created in nodejs._ 🚀
 
 [![N|Solid](https://nodejs.org/static/images/logo.svg)](https://nodejs.org/en/)
 
