@@ -1,4 +1,4 @@
-# _mini-project as microservice created in nodejs._ 🚀
+# _microservices created in nodejs._ 🚀
 
 [![N|Solid](https://nodejs.org/static/images/logo.svg)](https://nodejs.org/en/)
 
