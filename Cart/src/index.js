@@ -85,6 +85,6 @@ dbconn()
     }
   })
   .catch((e) => {
-    console.log("database connection error", e);
+    console.log("database connection error \n", e);
     process.exit(1);
   });
