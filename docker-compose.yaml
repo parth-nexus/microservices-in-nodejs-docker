@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 networks:
     appNetwork:
         driver: bridge
@@ -94,7 +94,21 @@ services:
     networks:
        appNetwork:
           ipv4_address: 172.21.0.10
+  rabbitmq:
+    image: rabbitmq:3-management
+    hostname: my-rabbit
+    volumes:
+        - rabbitmq_data:/var/lib/rabbitmq/mnesia/rabbit@my-rabbit
+        - rabbitmq_data2:/var/log/rabbitmq/log
+    ports:
+        - 5672:5672
+        - 15672:15672
+    networks:
+       appNetwork:
+          ipv4_address: 172.21.0.8
 volumes:
   mongodb_data:
+  rabbitmq_data:
+  rabbitmq_data2:
 
     

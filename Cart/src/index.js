@@ -47,7 +47,7 @@ dbconn()
          *
          */
         const queue = "tasks";
-        const conn = await amqp.connect("amqp://localhost");
+        const conn = await amqp.connect("amqp://172.21.0.8");
         const ch1 = await conn.createChannel();
         await ch1.assertQueue(queue);
         ch1.sendToQueue(
