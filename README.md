@@ -12,7 +12,7 @@ Know more about microservices from https://www.youtube.com/playlist?list=PLaLqLO
 
 Amqplib https://www.npmjs.com/package/amqplib
 
-Docker files are added and tested. Working as expected!
+Docker files and docker compose are added and tested. Working as expected!
 
 
 Start node gateway by doing
