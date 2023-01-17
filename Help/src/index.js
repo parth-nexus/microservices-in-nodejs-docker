@@ -16,13 +16,14 @@ const client = new MongoClient(process.env.MONGODB_URI_LOCAL, {
 
 async function dbconn() {
   const dbconn = await client.connect();
-  const DBconnection = dbconn.db("dashboard");
+  const DBconnection = dbconn.db("help");
   global.DBconnection = DBconnection;
 }
+
 dbconn()
   .then(() => {
-    app.get("help", (req, res) => {
-      res.render("help works");
+    app.get("/help", (req, res) => {
+      res.send("help works");
     });
 
     if (cluster.isPrimary) {

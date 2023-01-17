@@ -8,13 +8,13 @@ app.post("/add-to-cart", Proxy("http://172.21.0.3:3001"));
 app.get("/dashboard", Proxy("http://172.21.0.4:3002"));
 app.post("/dashboard", Proxy("http://172.21.0.4:3002"));
 
-app.use("/help", Proxy("http://172.21.0.5:3003"));
+app.get("/help", Proxy("http://172.21.0.5:3003"));
 app.post("/help", Proxy("http://172.21.0.5:3003"));
 
-app.use("/payment", Proxy("http://172.21.0.6:3004"));
+app.get("/payment", Proxy("http://172.21.0.6:3004"));
 app.post("/payment", Proxy("http://172.21.0.6:3004"));
 
-app.use("/profile", Proxy("http://172.21.0.7:3005"));
+app.get("/profile", Proxy("http://172.21.0.7:3005"));
 app.post("/profile", Proxy("http://172.21.0.7:3005"));
 
 app.listen(3000, () => {

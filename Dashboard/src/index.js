@@ -21,8 +21,8 @@ async function dbconn() {
 }
 dbconn()
   .then(() => {
-    app.get("dashboard", (req, res) => {
-      res.render("dashboard works");
+    app.get("/dashboard", (req, res) => {
+      res.send("dashboard works");
     });
 
     if (cluster.isPrimary) {
