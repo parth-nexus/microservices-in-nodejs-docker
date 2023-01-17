@@ -59,7 +59,7 @@ services:
       context: Dashboard
       dockerfile: Dockerfile
     ports:
-      - "3002:3002"
+      - "3004:3004"
     command: sh -c "npm i && npm start"
     depends_on:
       - mongodb
@@ -71,7 +71,7 @@ services:
       context: Dashboard
       dockerfile: Dockerfile
     ports:
-      - "3002:3002"
+      - "3005:3005"
     command: sh -c "npm i && npm start"
     depends_on:
       - mongodb
