@@ -1,0 +1,100 @@
+version: '2'
+networks:
+    appNetwork:
+        driver: bridge
+        ipam:
+            driver: default
+            config:
+                - subnet: "172.21.0.0/16"
+services:
+  mongodb:
+    build: 
+      context: Database
+      dockerfile: Dockerfile
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db        
+    networks:
+       appNetwork:
+          ipv4_address: 172.21.0.2
+  cart-micro:
+    build:
+      context: Cart
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3001"
+    command: sh -c "npm i && npm start"
+    depends_on:
+      - mongodb
+    networks:
+       appNetwork:
+          ipv4_address: 172.21.0.3
+  dashboard-micro:
+    build:
+      context: Dashboard
+      dockerfile: Dockerfile
+    ports:
+      - "3002:3002"
+    command: sh -c "npm i && npm start"
+    depends_on:
+      - mongodb
+    networks:
+       appNetwork:
+          ipv4_address: 172.21.0.4
+  help-micro:
+    build:
+      context: Help
+      dockerfile: Dockerfile
+    ports:
+      - "3003:3003"
+    command: sh -c "npm i && npm start"
+    depends_on:
+      - mongodb
+    networks:
+       appNetwork:
+          ipv4_address: 172.21.0.5
+  payment-micro:
+    build:
+      context: Dashboard
+      dockerfile: Dockerfile
+    ports:
+      - "3002:3002"
+    command: sh -c "npm i && npm start"
+    depends_on:
+      - mongodb
+    networks:
+       appNetwork:
+          ipv4_address: 172.21.0.6
+  profile-micro:
+    build:
+      context: Dashboard
+      dockerfile: Dockerfile
+    ports:
+      - "3002:3002"
+    command: sh -c "npm i && npm start"
+    depends_on:
+      - mongodb
+    networks:
+       appNetwork:
+          ipv4_address: 172.21.0.7
+  gatway-micro:
+    build:
+      context: gateway
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    command: sh -c "npm i && npm start"
+    depends_on:
+      - cart-micro
+      - profile-micro
+      - payment-micro
+      - help-micro
+      - dashboard-micro
+    networks:
+       appNetwork:
+          ipv4_address: 172.21.0.10
+volumes:
+  mongodb_data:
+
+    
