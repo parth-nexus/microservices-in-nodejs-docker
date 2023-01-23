@@ -20,4 +20,4 @@ OR
 
 You can run each microservice individually. For rabbitmq, You will have to install it from https://www.rabbitmq.com/download.html
 
-krupal edit
+krupal edit 2
